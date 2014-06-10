@@ -20,6 +20,16 @@ Setup for developers
  $ source venv/bin/activate
  $ pip install -r requirements.txt
  ```
+3. Make sure you have PostgreSQL database up and running, install [Psycopg](http://initd.org/psycopg) --
+  PostgreSQL database adapter for Python
+4. Create `systersdb` database, where `systersdb` might be any suitable name
+5. Fill in the database details in `systers_portal/settings/dev.py`
+6. Run `export SECRET_KEY=foobarbaz` in your terminal, ideally the secret key 
+  should be 40 characters long, unique and unpredictable
+7. Run `python manage.py syncdb`
+8. Run `python manage.py runserver` to start the development server. When in testing
+  or production, feed the respective settings file from the command line, e.g. for  
+  testing `python manage.py runserver settings=systers_portal.settings.testing`
 
 
 Documentation
