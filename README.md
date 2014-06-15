@@ -30,6 +30,7 @@ Setup for developers
 8. Run `python manage.py runserver` to start the development server. When in testing
   or production, feed the respective settings file from the command line, e.g. for  
   testing `python manage.py runserver settings=systers_portal.settings.testing`
+9. Before commiting run `flake8 systers_portal` and fix PEP8 warnings
 
 
 Documentation
