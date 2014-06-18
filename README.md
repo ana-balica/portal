@@ -31,6 +31,7 @@ Setup for developers
   or production, feed the respective settings file from the command line, e.g. for  
   testing `python manage.py runserver settings=systers_portal.settings.testing`
 9. Before commiting run `flake8 systers_portal` and fix PEP8 warnings
+10. Run `python systers_portal/manage.py test` to run all the tests
 
 
 Documentation
