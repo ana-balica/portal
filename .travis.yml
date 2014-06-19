@@ -1,7 +1,7 @@
 language: python
 python:
   - "2.7"
-install: "pip install -r requirements.txt --use-mirrors"
+install: "pip install -r requirements.txt"
 env: SECRET_KEY=foobarbaz
 before_script:
   - psql -c "CREATE DATABASE systersdb;" -U postgres
