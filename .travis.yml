@@ -1,0 +1,21 @@
+language: python
+python:
+  - "2.7"
+install: "pip install -r requirements.txt"
+env:
+  global:
+    - secure: "dsa1o/WdnUhjZ8WNwTVBnjNwvh3Hwc/5IMJsfhgC3yCKc371z2GJ44XBlVkDUQX5+BPRWVWzShxeVkxRaKRLNb/wHCNz1LyOdIPJvuyXHxgAMEDCPSYQSyCM5DoyqGjR+5xhE6XwdGYigBvqtJogdSDRbuylDqSOq2SvjdvyBv0="
+before_script:
+  - psql -c "CREATE DATABASE systersdb;" -U postgres
+script: 
+  - python systers_portal/manage.py test
+  - flake8 systers_portal
+notifications:
+  irc:
+    channels: "irc.freenode.org#systers-dev"
+    template:
+      - "%{repository}@%{branch}: %{message} (%{build_url})"
+    on_success: change
+    on_failure: change
+    use_notice: true
+  email: false
