@@ -30,6 +30,8 @@ def membership_required(model, *lookup_vars, **kwargs):
     def decorator(view_func):
         @wraps(view_func, assigned=available_attrs(view_func))
         def _wrapped_view(request, *args, **kwargs):
+            if request.user.is_superuser:
+                return view_func(request, *args, **kwargs)
             lookup, varname = lookup_vars
             value = kwargs.get(varname, None)
             if value is None:
@@ -70,6 +72,8 @@ def admin_required(model, *lookup_vars, **kwargs):
     def decorator(view_func):
         @wraps(view_func, assigned=available_attrs(view_func))
         def _wrapped_view(request, *args, **kwargs):
+            if request.user.is_superuser:
+                return view_func(request, *args, **kwargs)
             lookup, varname = lookup_vars
             value = kwargs.get(varname, None)
             if value is None:
@@ -106,6 +110,8 @@ def authorship_required(model, *lookup_vars, **kwargs):
     def decorator(view_func):
         @wraps(view_func, assigned=available_attrs(view_func))
         def _wrapped_view(request, *args, **kwargs):
+            if request.user.is_superuser:
+                return view_func(request, *args, **kwargs)
             lookup, varname = lookup_vars
             value = kwargs.get(varname, None)
             if value is None:
