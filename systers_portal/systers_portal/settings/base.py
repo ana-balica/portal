@@ -32,7 +32,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_nose',
+    # 'django_nose',
     'django.contrib.sites',
     'djangocms_text_ckeditor',
     'cms',
