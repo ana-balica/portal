@@ -172,6 +172,11 @@ table.table-manage {
   width: 50%;
 }
 
+p.comment-alert {
+  font-style: italic;
+  color: #FF851B;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

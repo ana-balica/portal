@@ -101,6 +101,9 @@
 {% if user.is_authenticated %}
   <h4>Leave a comment</h4>
   <div class="leave-comment">
+    {% if posting.is_monitor %}
+      <p class="comment-alert">Dear user, you comment will be reviewed and will appear once it is approved.</p>
+      {% endif %}
     {% if type == 'news' %}
     <form action="{% url 'add_newscomment' posting.community.slug posting.slug %}" method="post">
     {% elif type == 'resource' %}
